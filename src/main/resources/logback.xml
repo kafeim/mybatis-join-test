@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="30 seconds" debug="false">
     <contextName>servision</contextName>
-    <property name="LOG_HOME" value="/logs/mini-oelink" />
+    <property name="LOG_HOME" value="/Users/liubo/Java/project/mybatis-join-test/logs/mini-oelink" />
     <property name="log.charset" value="utf-8" />
     <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
 

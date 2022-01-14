@@ -1,10 +1,15 @@
 package com.kafeim.mybatis.join.comtroller;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.kafeim.mybatis.join.entity.Article;
 import com.kafeim.mybatis.join.mapper.ArticleMapper;
 import com.kafeim.mybatis.join.mapper.UserMapper;
+import com.kafeim.mybatis.join.query.UserQuery;
 import com.kafeim.mybatis.join.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,11 +31,27 @@ public class TestController {
 
     private final UserService userService;
 
-    @RequestMapping("/query")
-    public Object query(){
+    @RequestMapping("/query/one")
+    public Object queryOne(){
 
-
-        return userMapper.oneToOne();
+        UserQuery query = new UserQuery();
+        query.setUserId("1");
+        return articleMapper.connectedTableQueryOne(query);
     }
+
+
+//    @RequestMapping("/query/list")
+//    public Object queryList(){
+//
+//
+//        return articleMapper.connectedTableQueryList();
+//    }
+//
+//    @RequestMapping("/query/page")
+//    public Object queryPage(@RequestParam int page){
+//
+//
+//        return articleMapper.connectedTableQueryPage(new Page(page , 10)).getRecords();
+//    }
 
 }
