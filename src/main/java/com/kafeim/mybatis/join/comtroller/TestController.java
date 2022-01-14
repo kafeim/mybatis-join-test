@@ -40,6 +40,11 @@ public class TestController {
     }
 
 
+    @RequestMapping("/query/one1")
+    public Object query(){
+        return userService.list();
+    }
+
 //    @RequestMapping("/query/list")
 //    public Object queryList(){
 //
@@ -47,11 +52,12 @@ public class TestController {
 //        return articleMapper.connectedTableQueryList();
 //    }
 //
-//    @RequestMapping("/query/page")
-//    public Object queryPage(@RequestParam int page){
-//
-//
-//        return articleMapper.connectedTableQueryPage(new Page(page , 10)).getRecords();
-//    }
+    @RequestMapping("/query/page")
+    public Object queryPage(@RequestParam int page){
+        UserQuery query = new UserQuery();
+        query.setUserId("1");
+
+        return articleMapper.connectedTableQueryPage(new Page(page , 10) , query).getRecords();
+    }
 
 }
