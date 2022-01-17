@@ -1,9 +1,7 @@
 package com.kafeim.mybatis.join.query;
 
-import com.kafeim.mybatisplus.join.annotation.JoinOrder;
 import com.kafeim.mybatisplus.join.annotation.JoinWhere;
 import com.kafeim.mybatisplus.join.conditions.Condition;
-import com.kafeim.mybatisplus.join.enums.JoinSort;
 import com.kafeim.mybatisplus.join.enums.Where;
 import com.kafeim.mybatisplus.join.enums.WhereTyep;
 import lombok.Data;
@@ -16,9 +14,12 @@ import lombok.Data;
  * @Description:
  */
 @Data
-public class UserQuery extends Condition {
+public class ArticleQuery extends Condition {
 
     @JoinWhere(where = Where.EQ , whereType = WhereTyep.AND)
     private String userId;
+
+    @JoinWhere(where = Where.EQ , whereType = WhereTyep.AND)
+    private String title;
 
 }
