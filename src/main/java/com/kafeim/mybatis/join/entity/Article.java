@@ -7,9 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.kafeim.mybatisplus.join.KfMode;
 import com.kafeim.mybatisplus.join.annotation.OneToOne;
 import com.kafeim.mybatisplus.join.enums.JoinType;
-import com.kafeim.mybatisplus.join.object.Entity;
 import lombok.Data;
 
 /**
@@ -18,7 +19,7 @@ import lombok.Data;
  */
 @TableName(value ="kf_article")
 @Data
-public class Article implements Serializable {
+public class Article extends KfMode implements Serializable {
 
 
     @TableField(exist = false)

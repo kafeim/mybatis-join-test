@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.kafeim.mybatisplus.join.annotation.OneToMany;
 import com.kafeim.mybatisplus.join.enums.JoinType;
-import com.kafeim.mybatisplus.join.object.Entity;
 import lombok.Data;
 
 /**

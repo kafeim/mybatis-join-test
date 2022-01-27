@@ -39,6 +39,7 @@
         nickname,avatar,email,
         enable,create_time,update_time
     </sql>
+
 <!--    <select id="selectUser" resultType="com.kafeim.mybatis.join.entity.User" resultMap="BaseResultMap">-->
 <!--        SELECT-->
 <!--            kf_user.`id`,-->

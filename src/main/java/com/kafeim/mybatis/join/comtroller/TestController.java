@@ -1,12 +1,11 @@
 package com.kafeim.mybatis.join.comtroller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.kafeim.mybatis.join.entity.Article;
 import com.kafeim.mybatis.join.mapper.ArticleMapper;
 import com.kafeim.mybatis.join.mapper.UserMapper;
-import com.kafeim.mybatis.join.query.ArticleQuery;
-import com.kafeim.mybatis.join.query.UserQuery;
 import com.kafeim.mybatis.join.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,16 +32,18 @@ public class TestController {
 
     private final UserService userService;
 
-    @RequestMapping("/query/one")
-    public Object queryOne(@RequestBody ArticleQuery query){
-
-        return articleMapper.connectedTableQueryList(query);
-    }
+//    @RequestMapping("/query/one")
+//    public Object queryOne(@RequestBody ArticleQuery query){
+//
+//        return articleMapper.joinQueryOne();
+//    }
 
 
     @RequestMapping("/query/one1")
     public Object query(){
-        return userService.list();
+
+        Article article = new Article();
+        return article.joinQueryOne(new QueryWrapper<Article>().eq("kf_article.user_id", "1"));
     }
 
 //    @RequestMapping("/query/list")
@@ -52,12 +53,12 @@ public class TestController {
 //        return articleMapper.connectedTableQueryList();
 //    }
 //
-    @RequestMapping("/query/page")
-    public Object queryPage(@RequestParam int page){
-        UserQuery query = new UserQuery();
-        query.setUserId("1");
-
-        return articleMapper.connectedTableQueryPage(new Page(page , 10) , query).getRecords();
-    }
+//    @RequestMapping("/query/page")
+//    public Object queryPage(@RequestParam int page){
+//        UserQuery query = new UserQuery();
+//        query.setUserId("1");
+//
+//        return articleMapper.connectedTableQueryPage(new Page(page , 10) , query).getRecords();
+//    }
 
 }
